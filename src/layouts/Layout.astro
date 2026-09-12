@@ -18,14 +18,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="kazuki yoshida - ML Infra Engineer, 東京" />
+    <meta name="description" content="kazuki yoshida - CrestAI 代表 / Software Engineer @Tokyo" />
     <title>{title}</title>
     <script is:inline define:vars={{ base }}>
       (function () {
-        var theme = localStorage.getItem("theme");
-        if (!theme) {
-          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-        }
+        // Default to dark mode; only use light when explicitly chosen by the user
+        var theme = localStorage.getItem("theme") === "light" ? "light" : "dark";
         document.documentElement.classList.toggle("dark", theme === "dark");
         // Preload sidebar background image for the active theme
         var img = theme === "dark"
@@ -60,7 +58,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </head>
   <body class="min-h-screen">
     <!-- Desktop Sidebar -->
-    <div class="hidden md:block" transition:persist>
+    <!-- NOTE: transition:persist must only be set on the island, not on this wrapper.
+         Nesting persisted elements makes WebKit (Safari) drop the inner island on navigation. -->
+    <div class="hidden md:block">
       <Sidebar currentPath={currentPath} client:load transition:persist />
     </div>
     <!-- Mobile Header -->

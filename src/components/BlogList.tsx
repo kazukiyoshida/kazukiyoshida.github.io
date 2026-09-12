@@ -150,22 +150,12 @@ export default function BlogList() {
       <div className="px-4 md:px-32 py-8 md:py-10">
         {/* Profile intro */}
         <div
-          className="flex items-start gap-6 md:gap-8 py-7 md:py-10 animate-fade-in-up"
+          className="py-7 md:py-10 animate-fade-in-up"
           style={{
             borderTop: "2px solid var(--content-hero-border)",
             borderBottom: "2px solid var(--content-hero-border)",
           }}
         >
-          <img
-            src={withBase("/images/selfie-icon.jpg")}
-            alt="kazuki yoshida"
-            className="w-20 h-20 md:w-28 md:h-28 rounded-full shrink-0"
-            style={{
-              border: "2px solid var(--content-profile-border)",
-              objectFit: "cover",
-              objectPosition: "center 20%",
-            }}
-          />
           <div className="min-w-0">
             <h2
               className="text-lg md:text-2xl font-bold mb-2 md:mb-3"
@@ -183,7 +173,7 @@ export default function BlogList() {
                 color: "var(--content-text)",
               }}
             >
-              {t("bio", lang)}
+              {t("heroRole", lang)}
             </p>
             <div className="flex gap-3">
               {socialLinks.map(({ icon, href, label }) => (

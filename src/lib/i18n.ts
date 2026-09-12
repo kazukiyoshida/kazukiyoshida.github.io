@@ -35,9 +35,14 @@ export function setLang(lang: Lang) {
 const translations = {
   // Sidebar / MobileSidebar
   bio: {
-    ja: "CrestAI 代表\nML Infra Engineer, 東京",
-    en: "CEO at CrestAI\nML Infra Engineer, Tokyo",
-    zh: "CrestAI 代表\nML Infra Engineer, 东京",
+    ja: "CrestAI 代表\nSoftware Engineer @Tokyo",
+    en: "CEO at CrestAI\nSoftware Engineer @Tokyo",
+    zh: "CrestAI 代表\nSoftware Engineer @Tokyo",
+  },
+  heroRole: {
+    ja: "CrestAI 代表 / Software Engineer @Tokyo",
+    en: "CEO at CrestAI / Software Engineer @Tokyo",
+    zh: "CrestAI 代表 / Software Engineer @Tokyo",
   },
   navAbout: {
     ja: "about",
@@ -87,9 +92,9 @@ const translations = {
     zh: "© 2024 kazuki yoshida",
   },
   footerRole: {
-    ja: "CrestAI 代表 / ML Infra Engineer, 東京",
-    en: "CEO at CrestAI / ML Infra Engineer, Tokyo",
-    zh: "CrestAI 代表 / ML Infra Engineer, 东京",
+    ja: "CrestAI 代表 / Software Engineer @Tokyo",
+    en: "CEO at CrestAI / Software Engineer @Tokyo",
+    zh: "CrestAI 代表 / Software Engineer @Tokyo",
   },
 
   // About page

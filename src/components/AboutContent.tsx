@@ -175,7 +175,7 @@ export default function AboutContent() {
           <div className="space-y-4">
             {timeline.map((item, i) => (
               <div
-                key={item.year}
+                key={`${item.year}-${i}`}
                 className="flex gap-6 items-start animate-slide-in-left"
                 style={{
                   animationDelay: `${0.35 + i * 0.08}s`,

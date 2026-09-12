@@ -4,18 +4,11 @@ export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "theme";
 
-function detectSystemTheme(): Theme {
-  if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches) {
-    return "light";
-  }
-  return "dark";
-}
-
+// Default to dark mode; light mode is only used when explicitly chosen by the user
 function getInitialTheme(): Theme {
   if (typeof window !== "undefined") {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === "light" || stored === "dark") return stored;
-    return detectSystemTheme();
   }
   return "dark";
 }
