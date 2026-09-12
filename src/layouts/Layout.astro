@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import Sidebar from "../components/Sidebar.tsx";
 import MobileSidebar from "../components/MobileSidebar.tsx";
@@ -43,7 +43,7 @@ const { title = "kazuki yoshida", currentPath = "/" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <ViewTransitions />
+    <ClientRouter />
     <script is:inline>
       // Fix: Astro View Transitions ignores popstate events where
       // history.state is null (i.e. the initial page load entry).

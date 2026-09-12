@@ -1,14 +1,14 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import tailwind from "@astrojs/tailwind";
+import { unified } from "@astrojs/markdown-remark";
 import { remarkBasePath } from "./src/lib/remark-base-path.mjs";
 
 export default defineConfig({
   site: "https://kazukiyoshida.github.io",
   base: "/personal-website",
-  integrations: [react(), tailwind()],
+  integrations: [react()],
   markdown: {
-    remarkPlugins: [remarkBasePath],
+    processor: unified({ remarkPlugins: [remarkBasePath] }),
     shikiConfig: {
       theme: "github-dark",
     },

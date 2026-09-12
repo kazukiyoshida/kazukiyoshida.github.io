@@ -11,11 +11,11 @@ A file for [guiding coding agents](https://agents.md/).
 
 ## Tech Stack
 
-- **Framework:** Astro 4.x (Island Architecture)
+- **Framework:** Astro 7.x (Island Architecture, Node >=22.12)
 - **UI:** React 18 (hydrated with `client:load`)
-- **Styling:** Tailwind CSS 3 + custom CSS (Terminal Noir design system)
+- **Styling:** Tailwind CSS 3 (via PostCSS, `postcss.config.mjs`) + custom CSS (Terminal Noir design system)
 - **State:** nanostores + @nanostores/react
-- **Content:** Astro Content Collections (Markdown)
+- **Content:** Astro Content Collections (Markdown, `glob` loader)
 - **Syntax Highlighting:** Shiki (github-dark)
 
 ## Directory Structure
@@ -23,7 +23,7 @@ A file for [guiding coding agents](https://agents.md/).
 - `src/pages/` — Astro file-based routing (index, about, blog/[slug])
 - `src/components/` — React components (islands) and Astro components
 - `src/content/blog/{slug}/` — Blog posts (ja.md, en.md, zh.md per post)
-- `src/content/config.ts` — Content Collection schema
+- `src/content.config.ts` — Content Collection schema (glob loader)
 - `src/layouts/` — Astro layout (Layout.astro)
 - `src/lib/` — Shared logic (blog-data.ts, i18n.ts)
 - `src/styles/` — Global CSS (Terminal Noir design system)

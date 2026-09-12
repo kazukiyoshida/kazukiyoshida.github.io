@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogPostHeader from "../../components/BlogPostHeader.tsx";
 
@@ -22,7 +22,7 @@ const allPosts = await getCollection(
 // Render each language version
 const rendered: { lang: string; title: string; date: string; tags: string[]; Content: any }[] = [];
 for (const post of allPosts) {
-  const { Content } = await post.render();
+  const { Content } = await render(post);
   rendered.push({
     lang: post.data.lang,
     title: post.data.title,
