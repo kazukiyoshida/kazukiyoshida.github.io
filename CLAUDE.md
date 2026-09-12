@@ -22,7 +22,7 @@ A file for [guiding coding agents](https://agents.md/).
 
 - `src/pages/` — Astro file-based routing (index, about, blog/[slug])
 - `src/components/` — React components (islands) and Astro components
-- `src/content/blog/{slug}/` — Blog posts (ja.md, en.md, zh.md per post)
+- `src/content/blog/{YYYYMMDD}-{slug}/` — Blog posts (ja.md, en.md, zh.md per post)
 - `src/content.config.ts` — Content Collection schema (glob loader)
 - `src/layouts/` — Astro layout (Layout.astro)
 - `src/lib/` — Shared logic (blog-data.ts, i18n.ts)
@@ -32,7 +32,11 @@ A file for [guiding coding agents](https://agents.md/).
 
 ## Blog Post Structure
 
-Each blog post lives in `src/content/blog/{slug}/` with 3 files:
+Each blog post lives in `src/content/blog/{YYYYMMDD}-{slug}/` with 3 files
+(e.g. `20210126-actor-model-di/`). The date prefix is only for sorting
+directories internally; the public URL comes from the `postSlug` frontmatter
+field and the displayed date from `date`, so the prefix may differ from them
+without affecting the site.
 - `ja.md` — Japanese (primary)
 - `en.md` — English translation
 - `zh.md` — Chinese translation
@@ -45,7 +49,7 @@ date: "YYYY-MM-DD"
 tags: ["Tag1", "Tag2"]
 excerpt: "記事の概要"
 lang: "ja"        # ja | en | zh
-postSlug: "slug"  # shared across languages
+postSlug: "slug"  # shared across languages; determines the URL /blog/{slug}
 draft: false      # optional, hides from listing
 ---
 ```

@@ -1,6 +1,8 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+// Directory names are `{YYYYMMDD}-{slug}` for ordering only. Routing uses the
+// `postSlug` frontmatter field, never the directory name or entry id.
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: z.object({
