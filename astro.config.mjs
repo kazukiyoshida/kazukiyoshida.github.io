@@ -5,7 +5,6 @@ import { remarkBasePath } from "./src/lib/remark-base-path.mjs";
 
 export default defineConfig({
   site: "https://kazukiyoshida.github.io",
-  base: "/personal-website",
   integrations: [react()],
   markdown: {
     processor: unified({ remarkPlugins: [remarkBasePath] }),

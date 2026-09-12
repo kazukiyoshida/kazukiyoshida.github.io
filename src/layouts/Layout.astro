@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { title = "kazuki yoshida", currentPath = "/" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <!doctype html>
@@ -19,7 +20,7 @@ const { title = "kazuki yoshida", currentPath = "/" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="kazuki yoshida - ML Infra Engineer, 東京" />
     <title>{title}</title>
-    <script is:inline>
+    <script is:inline define:vars={{ base }}>
       (function () {
         var theme = localStorage.getItem("theme");
         if (!theme) {
@@ -28,8 +29,8 @@ const { title = "kazuki yoshida", currentPath = "/" } = Astro.props;
         document.documentElement.classList.toggle("dark", theme === "dark");
         // Preload sidebar background image for the active theme
         var img = theme === "dark"
-          ? "/personal-website/images/sidebar-bg.webp"
-          : "/personal-website/images/sidebar-bg-light-wo-clouds.webp";
+          ? base + "/images/sidebar-bg.webp"
+          : base + "/images/sidebar-bg-light-wo-clouds.webp";
         var link = document.createElement("link");
         link.rel = "preload";
         link.as = "image";
