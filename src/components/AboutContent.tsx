@@ -34,9 +34,8 @@ const socialLinks = [
 
 const skills = [
   { category: "Languages", items: ["Rust", "Go", "Python", "TypeScript"] },
-  { category: "Frontend", items: ["Vue.js", "Nuxt.js", "React"] },
-  { category: "ML / Infra", items: ["TensorFlow", "PyTorch", "Kubernetes", "Docker"] },
-  { category: "Tools", items: ["Vim", "Git", "Linux", "PostgreSQL"] },
+  { category: "Infra", items: ["Kubernetes", "Docker", "GCP", "AWS"] },
+  { category: "Tools", items: ["Vim", "Tmux", "Ghostty"] },
 ];
 
 export default function AboutContent() {
@@ -205,6 +204,22 @@ export default function AboutContent() {
                   }}
                 >
                   {item.event}
+                  {item.links?.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-2 whitespace-nowrap hover:underline"
+                      style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        color: "var(--amber)",
+                        fontSize: "0.75rem",
+                      }}
+                    >
+                      [{link.label} ↗]
+                    </a>
+                  ))}
                 </p>
               </div>
             ))}

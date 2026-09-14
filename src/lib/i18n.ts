@@ -104,14 +104,14 @@ const translations = {
     zh: "// about me",
   },
   aboutRole: {
-    ja: "CrestAI 代表 / ML Infra Engineer",
-    en: "CEO at CrestAI / ML Infra Engineer",
-    zh: "CrestAI 代表 / ML Infra Engineer",
+    ja: "CrestAI 代表 / Software Engineer @Tokyo",
+    en: "CEO at CrestAI / Software Engineer @Tokyo",
+    zh: "CrestAI 代表 / Software Engineer @Tokyo",
   },
   aboutBio: {
-    ja: "CrestAI 代表。東京を拠点に活動するML Infra Engineerです。機械学習基盤の設計・開発を専門とし、RustやGoを使ったシステムプログラミングにも取り組んでいます。このブログでは、日々の技術的な学びや発見を記録しています。",
-    en: "CEO at CrestAI. I'm an ML Infra Engineer based in Tokyo, specializing in designing and building machine learning infrastructure. I also work on systems programming with Rust and Go. This blog is where I document my technical learnings and discoveries.",
-    zh: "CrestAI 代表。我是一名驻东京的ML Infra Engineer，专注于机器学习基础设施的设计与开发，同时也从事Rust和Go的系统编程。在这个博客中，我记录着日常的技术学习与发现。",
+    ja: "CrestAI 代表。東京を拠点に活動する Software Engineer です。最近は Agent システム開発や AI 駆動開発に関連する仕事が多いです。",
+    en: "CEO at CrestAI. I'm a Software Engineer based in Tokyo. Lately most of my work involves building agent systems and AI-driven development.",
+    zh: "CrestAI 代表。我是一名驻东京的 Software Engineer。最近的工作主要围绕 Agent 系统开发和 AI 驱动开发。",
   },
   skills: {
     ja: "// skills",
@@ -127,6 +127,15 @@ const translations = {
     ja: [
       { year: "2025", event: "CrestAI を創業、AI システムの開発や開発プロセス改善に取り組む" },
       {
+        year: "2025",
+        event:
+          "Tech-Verse 2025 に登壇、LINEヤフーで開発した Ray クラスタ管理基盤「Rayleigh」について発表",
+        links: [
+          { label: "session", href: "https://tech-verse.lycorp.co.jp/2025/ja/session/1022/" },
+          { label: "video", href: "https://www.youtube.com/watch?v=koKPPi8Pto8" },
+        ],
+      },
+      {
         year: "2021",
         event:
           "LINE (Machine Learning Infrastructure Team) に入社、機械学習システムの基盤や分散処理基盤を構築",
@@ -139,7 +148,9 @@ const translations = {
       },
       {
         year: "2017",
-        event: "京都大学大学院理学研究科を卒業（神経細胞と画像処理機械学習に関する研究）",
+        event:
+          "京都大学大学院 理学研究科 物理学第一教室 修士課程修了（篠本研究室・神経細胞と画像処理機械学習に関する研究）",
+        links: [{ label: "lab", href: "https://sites.google.com/view/shigerushinomoto/" }],
       },
     ],
     en: [
@@ -147,6 +158,15 @@ const translations = {
         year: "2025",
         event:
           "Founded CrestAI, working on AI system development and improving development processes",
+      },
+      {
+        year: "2025",
+        event:
+          "Spoke at Tech-Verse 2025 about Rayleigh, a management platform for Ray clusters built at LY Corporation",
+        links: [
+          { label: "session", href: "https://tech-verse.lycorp.co.jp/2025/ja/session/1022/" },
+          { label: "video", href: "https://www.youtube.com/watch?v=koKPPi8Pto8" },
+        ],
       },
       {
         year: "2021",
@@ -162,11 +182,21 @@ const translations = {
       {
         year: "2017",
         event:
-          "Graduated from Kyoto University Graduate School of Science (research on neural cells and image processing with machine learning)",
+          "M.Sc. in Physics, Graduate School of Science, Kyoto University (Shinomoto Lab; research on neural cells and image processing with machine learning)",
+        links: [{ label: "lab", href: "https://sites.google.com/view/shigerushinomoto/" }],
       },
     ],
     zh: [
       { year: "2025", event: "创立 CrestAI，从事 AI 系统开发和开发流程改善" },
+      {
+        year: "2025",
+        event:
+          "在 Tech-Verse 2025 上发表演讲，介绍在 LY Corporation 开发的 Ray 集群管理平台「Rayleigh」",
+        links: [
+          { label: "session", href: "https://tech-verse.lycorp.co.jp/2025/ja/session/1022/" },
+          { label: "video", href: "https://www.youtube.com/watch?v=koKPPi8Pto8" },
+        ],
+      },
       {
         year: "2021",
         event:
@@ -180,7 +210,9 @@ const translations = {
       },
       {
         year: "2017",
-        event: "毕业于京都大学大学院理学研究科（神经细胞与图像处理机器学习相关研究）",
+        event:
+          "京都大学大学院 理学研究科 物理学第一教室 硕士毕业（篠本研究室・神经细胞与图像处理机器学习相关研究）",
+        links: [{ label: "lab", href: "https://sites.google.com/view/shigerushinomoto/" }],
       },
     ],
   },
@@ -216,6 +248,12 @@ export function t(key: TranslationKey, lang: Lang): string {
   return entry[lang] as unknown as string;
 }
 
-export function getTimelineEvents(lang: Lang) {
+export interface TimelineEvent {
+  year: string;
+  event: string;
+  links?: readonly { label: string; href: string }[];
+}
+
+export function getTimelineEvents(lang: Lang): readonly TimelineEvent[] {
   return translations.timelineEvents[lang];
 }

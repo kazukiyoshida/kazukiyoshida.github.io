@@ -171,7 +171,7 @@ export default function MobileSidebar({ currentPath: initialPath }: MobileSideba
                   ))}
                   <br />
                   <span style={{ color: isDark ? "rgba(245,166,35,0.8)" : "rgba(180,120,20,0.9)" }}>
-                    #Rust #Go #Python #Vue #Vim
+                    #Rust #Go #Python #Vim
                   </span>
                 </p>
               </div>

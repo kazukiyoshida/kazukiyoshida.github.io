@@ -150,7 +150,7 @@ export default function Sidebar({ currentPath: initialPath }: SidebarProps) {
             </span>
           ))}
           <br />
-          <span style={{ color: "rgba(245,166,35,0.8)" }}>#Rust #Go #Python #Vue #Vim</span>
+          <span style={{ color: "rgba(245,166,35,0.8)" }}>#Rust #Go #Python #Vim</span>
         </p>
 
         {/* Navigation */}
